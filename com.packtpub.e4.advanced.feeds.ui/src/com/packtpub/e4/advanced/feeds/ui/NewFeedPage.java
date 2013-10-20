@@ -8,6 +8,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 package com.packtpub.e4.advanced.feeds.ui;
+import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
@@ -26,13 +27,24 @@ public class NewFeedPage extends WizardPage {
 		public void keyReleased(KeyEvent e) {
 			boolean hasDescription = !"".equals(getTextFrom(descriptionText));
 			boolean hasUrl = !"".equals(getTextFrom(urlText));
+			if (!hasDescription) {
+				setMessage("Please enter a description", IMessageProvider.ERROR);
+			}
+			if (!hasUrl) {
+				setMessage("Please enter a URL", IMessageProvider.ERROR);
+			}
+			if (hasDescription && hasUrl) {
+				setMessage(null);
+			}
 			setPageComplete(hasDescription && hasUrl);
 		}
 	}
 	private Text descriptionText;
 	private Text urlText;
 	protected NewFeedPage() {
-		super("Add New Feed");
+		super("NewFeedPage");
+		setTitle("Add New Feed");
+		setMessage("Please enter a URL and description for a news feed");
 	}
 	@Override
 	public void createControl(Composite parent) {
