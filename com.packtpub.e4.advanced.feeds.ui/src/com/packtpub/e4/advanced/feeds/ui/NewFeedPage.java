@@ -10,12 +10,25 @@
 package com.packtpub.e4.advanced.feeds.ui;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 public class NewFeedPage extends WizardPage {
+	private class CompleteListener implements KeyListener {
+		@Override
+		public void keyPressed(KeyEvent e) {
+		}
+		@Override
+		public void keyReleased(KeyEvent e) {
+			boolean hasDescription = !"".equals(getTextFrom(descriptionText));
+			boolean hasUrl = !"".equals(getTextFrom(urlText));
+			setPageComplete(hasDescription && hasUrl);
+		}
+	}
 	private Text descriptionText;
 	private Text urlText;
 	protected NewFeedPage() {
@@ -36,6 +49,9 @@ public class NewFeedPage extends WizardPage {
 		descriptionLabel.setText("Feed description:");
 		descriptionText = new Text(page, SWT.BORDER);
 		descriptionText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		CompleteListener listener = new CompleteListener();
+		urlText.addKeyListener(listener);
+		descriptionText.addKeyListener(listener);
 	}
 	public String getDescription() {
 		return getTextFrom(descriptionText);
