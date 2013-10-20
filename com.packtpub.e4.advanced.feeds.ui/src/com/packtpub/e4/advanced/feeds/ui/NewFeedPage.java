@@ -11,7 +11,10 @@ package com.packtpub.e4.advanced.feeds.ui;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
 public class NewFeedPage extends WizardPage {
+	private Text descriptionText;
+	private Text urlText;
 	protected NewFeedPage() {
 		super("Add New Feed");
 	}
@@ -20,5 +23,14 @@ public class NewFeedPage extends WizardPage {
 		Composite page = new Composite(parent, SWT.NONE);
 		setControl(page);
 		setPageComplete(false);
+	}
+	public String getDescription() {
+		return getTextFrom(descriptionText);
+	}
+	private String getTextFrom(Text text) {
+		return text == null || text.isDisposed() ? null : text.getText();
+	}
+	public String getURL() {
+		return getTextFrom(urlText);
 	}
 }
