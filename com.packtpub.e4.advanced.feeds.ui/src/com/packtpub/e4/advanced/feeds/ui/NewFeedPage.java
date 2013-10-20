@@ -9,6 +9,7 @@
  */
 package com.packtpub.e4.advanced.feeds.ui;
 import org.eclipse.jface.dialogs.IMessageProvider;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
@@ -45,6 +46,7 @@ public class NewFeedPage extends WizardPage {
 		super("NewFeedPage");
 		setTitle("Add New Feed");
 		setMessage("Please enter a URL and description for a news feed");
+		setImageDescriptor(ImageDescriptor.createFromFile(NewFeedPage.class, "/icons/full/wizban/newfeed_wiz.png"));
 	}
 	@Override
 	public void createControl(Composite parent) {
