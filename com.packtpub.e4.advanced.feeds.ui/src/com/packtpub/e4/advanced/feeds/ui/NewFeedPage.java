@@ -9,6 +9,7 @@
  */
 package com.packtpub.e4.advanced.feeds.ui;
 import org.eclipse.jface.dialogs.IMessageProvider;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -46,7 +47,8 @@ public class NewFeedPage extends WizardPage {
 		super("NewFeedPage");
 		setTitle("Add New Feed");
 		setMessage("Please enter a URL and description for a news feed");
-		setImageDescriptor(ImageDescriptor.createFromFile(NewFeedPage.class, "/icons/full/wizban/newfeed_wiz.png"));
+		setImageDescriptor(ImageDescriptor.createFromFile(NewFeedPage.class,
+				"/icons/full/wizban/newfeed_wiz.png"));
 	}
 	@Override
 	public void createControl(Composite parent) {
@@ -75,5 +77,15 @@ public class NewFeedPage extends WizardPage {
 	}
 	public String getURL() {
 		return getTextFrom(urlText);
+	}
+	@Override
+	public void performHelp() {
+		MessageDialog
+				.openInformation(
+						getShell(),
+						"Help for Add New Feed",
+						"You can add your feeds into this as an RSS or Atom feed, "
+						+ "and optionally specify an additional description "
+						+ "which will be used as the feed title.");
 	}
 }

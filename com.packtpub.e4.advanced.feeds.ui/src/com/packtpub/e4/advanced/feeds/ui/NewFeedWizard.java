@@ -17,6 +17,7 @@ public class NewFeedWizard extends Wizard {
 	@Override
 	public void addPages() {
 		addPage(newFeedPage);
+		setHelpAvailable(true);
 	}
 	@Override
 	public boolean performFinish() {
