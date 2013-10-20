@@ -10,7 +10,10 @@
 package com.packtpub.e4.advanced.feeds.ui;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 public class NewFeedPage extends WizardPage {
 	private Text descriptionText;
@@ -23,6 +26,16 @@ public class NewFeedPage extends WizardPage {
 		Composite page = new Composite(parent, SWT.NONE);
 		setControl(page);
 		setPageComplete(false);
+		page.setLayout(new GridLayout(2, false));
+		page.setLayoutData(new GridData(GridData.FILL_BOTH));
+		Label urlLabel = new Label(page, SWT.NONE);
+		urlLabel.setText("Feed URL:");
+		urlText = new Text(page, SWT.BORDER);
+		urlText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		Label descriptionLabel = new Label(page, SWT.NONE);
+		descriptionLabel.setText("Feed description:");
+		descriptionText = new Text(page, SWT.BORDER);
+		descriptionText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 	}
 	public String getDescription() {
 		return getTextFrom(descriptionText);
