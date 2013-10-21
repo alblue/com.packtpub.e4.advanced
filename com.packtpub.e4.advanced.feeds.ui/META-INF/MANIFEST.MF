@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Feeds UI
-Bundle-SymbolicName: com.packtpub.e4.advanced.feeds.ui
+Bundle-SymbolicName: com.packtpub.e4.advanced.feeds.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.packtpub.e4.advanced.feeds.ui.Activator
 Bundle-Vendor: PACKTPUB

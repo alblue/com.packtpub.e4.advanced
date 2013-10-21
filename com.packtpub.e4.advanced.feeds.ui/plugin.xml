@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="com.packtpub.e4.advanced.feeds.ui.category"
+            name="Feeds">
+      </category>
+      <wizard
+            category="com.packtpub.e4.advanced.feeds.ui.category"
+            class="com.packtpub.e4.advanced.feeds.ui.NewFeedWizard"
+            icon="icons/full/etool16/newfeed_wiz.gif"
+            id="com.packtpub.e4.advanced.feeds.ui.newFeedWizard"
+            name="New Feed">
+      </wizard>
+   </extension>
+</plugin>
