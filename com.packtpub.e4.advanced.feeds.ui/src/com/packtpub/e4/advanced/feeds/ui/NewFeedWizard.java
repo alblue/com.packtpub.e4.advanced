@@ -9,6 +9,9 @@
  */
 package com.packtpub.e4.advanced.feeds.ui;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 public class NewFeedWizard extends Wizard {
 	private NewFeedPage newFeedPage = new NewFeedPage();
 	@Override
@@ -18,5 +21,16 @@ public class NewFeedWizard extends Wizard {
 	@Override
 	public boolean performFinish() {
 		return false;
+	}
+	/**
+	 * This method permits the wizard to be tested outside of an Eclipse runtime.
+	 * 
+	 * It is not intended to demonstrate good practice.
+	 */
+	public static void main(String[] args) {
+		Display display = new Display();
+		Shell shell = new Shell(display);
+		new WizardDialog(shell, new NewFeedWizard()).open();
+		display.dispose();
 	}
 }
