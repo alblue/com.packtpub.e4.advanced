@@ -15,4 +15,44 @@
             name="New Feed">
       </wizard>
    </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            activeByDefault="true"
+            contentProvider="com.packtpub.e4.advanced.feeds.ui.FeedContentProvider"
+            id="com.packtpub.e4.advanced.feeds.ui.feedNavigatorContent"
+            labelProvider="com.packtpub.e4.advanced.feeds.ui.FeedLabelProvider"
+            name="Feed Navigator Content">
+         <triggerPoints>
+               <and>
+                  <instanceof
+                        value="org.eclipse.core.resources.IResource">
+                  </instanceof>
+                  <test
+                        forcePluginActivation="true"
+                        property="org.eclipse.core.resources.extension"
+                        value="feeds">
+                  </test>
+               </and>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+               <instanceof
+                     value="com.packtpub.e4.advanced.feeds.ui.Feed">
+               </instanceof>
+            </or>
+         </possibleChildren>
+      </navigatorContent>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerContentBinding
+            viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension
+                  pattern="com.packtpub.e4.advanced.feeds.ui.feedNavigatorContent">
+            </contentExtension>
+         </includes>
+      </viewerContentBinding>
+   </extension>
 </plugin>
