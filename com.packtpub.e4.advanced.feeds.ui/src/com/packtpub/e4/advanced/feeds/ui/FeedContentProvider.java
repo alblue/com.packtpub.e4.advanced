@@ -14,15 +14,25 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.IResourceChangeListener;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-public class FeedContentProvider implements ITreeContentProvider {
+public class FeedContentProvider implements ITreeContentProvider,
+		IResourceChangeListener {
 	private static final Object[] NO_CHILDREN = new Object[0];
+	private Viewer viewer;
 	@Override
 	public void dispose() {
+		viewer = null;
+		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
 	}
 	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+		this.viewer = viewer;
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(this,
+				IResourceChangeEvent.POST_CHANGE);
 	}
 	@Override
 	public Object[] getElements(Object inputElement) {
@@ -47,8 +57,7 @@ public class FeedContentProvider implements ITreeContentProvider {
 						@SuppressWarnings("unchecked")
 						Map.Entry<String, String> entry = (Entry<String, String>) it
 								.next();
-						result[i++] = new Feed(
-								entry.getValue(),entry.getKey());
+						result[i++] = new Feed(entry.getValue(), entry.getKey());
 					}
 				} catch (Exception e) {
 					return NO_CHILDREN;
@@ -64,5 +73,9 @@ public class FeedContentProvider implements ITreeContentProvider {
 	@Override
 	public boolean hasChildren(Object element) {
 		return false;
+	}
+	@Override
+	public void resourceChanged(IResourceChangeEvent event) {
+		viewer.refresh();
 	}
 }
