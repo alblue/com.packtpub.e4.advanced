@@ -47,8 +47,8 @@ public class FeedContentProvider implements ITreeContentProvider {
 						@SuppressWarnings("unchecked")
 						Map.Entry<String, String> entry = (Entry<String, String>) it
 								.next();
-						result[i++] = new Feed(entry.getValue(),
-								entry.getKey());
+						result[i++] = new Feed(
+								entry.getValue(),entry.getKey());
 					}
 				} catch (Exception e) {
 					return NO_CHILDREN;
