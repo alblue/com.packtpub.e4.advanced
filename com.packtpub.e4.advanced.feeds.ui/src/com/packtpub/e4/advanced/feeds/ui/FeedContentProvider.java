@@ -20,9 +20,13 @@ import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.ui.progress.UIJob;
 public class FeedContentProvider implements ITreeContentProvider,
 		IResourceChangeListener {
 	private static final Object[] NO_CHILDREN = new Object[0];
@@ -93,7 +97,15 @@ public class FeedContentProvider implements ITreeContentProvider,
 		public boolean visit(IResourceDelta delta) throws CoreException {
 			final IResource resource = delta.getResource();
 			if (resource != null && "feeds".equals(resource.getFileExtension())) {
-				((StructuredViewer) viewer).refresh(resource);
+				new UIJob("RefreshingFeeds") {
+					@Override
+					public IStatus runInUIThread(IProgressMonitor monitor) {
+						if(viewer != null) {
+							((StructuredViewer)viewer).refresh(resource);
+						}
+						return Status.OK_STATUS;
+					}
+				}.schedule();
 			}
 			return true;
 		}
