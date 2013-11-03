@@ -45,6 +45,7 @@ public class NewFeedWizard extends Wizard implements INewWizard {
 		display.dispose();
 	}
 	private NewFeedPage newFeedPage = new NewFeedPage();
+	private NewFeedPreviewPage newFeedPreviewPage = new NewFeedPreviewPage();
 	private synchronized void addFeed(String url, String description,
 			IProgressMonitor monitor) throws CoreException, IOException {
 		SubMonitor subMonitor = SubMonitor.convert(monitor, 2);
@@ -77,6 +78,7 @@ public class NewFeedWizard extends Wizard implements INewWizard {
 	@Override
 	public void addPages() {
 		addPage(newFeedPage);
+		addPage(newFeedPreviewPage);
 		setHelpAvailable(true);
 		setNeedsProgressMonitor(true);
 	}
