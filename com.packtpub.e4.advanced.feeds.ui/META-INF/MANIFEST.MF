@@ -8,7 +8,9 @@ Bundle-Vendor: PACKTPUB
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
- org.eclipse.ui.navigator
+ org.eclipse.ui.navigator,
+ org.eclipse.ui.ide;resolution:=optional,
+ org.eclipse.jface.text
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: com.packtpub.e4.advanced.feeds.ui

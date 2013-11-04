@@ -52,6 +52,7 @@
             <contentExtension
                   pattern="com.packtpub.e4.advanced.feeds.ui.feedNavigatorContent">
             </contentExtension>
+            <contentExtension pattern="com.packtpub.e4.advanced.feeds.ui.FeedLinkHelper"/>
          </includes>
       </viewerContentBinding>
    </extension>
@@ -87,5 +88,21 @@
             </visibleWhen>
          </command>
       </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.linkHelper">
+      <linkHelper
+            class="com.packtpub.e4.advanced.feeds.ui.FeedLinkHelper"
+            id="com.packtpub.e4.advanced.feeds.ui.FeedLinkHelper">
+         <editorInputEnablement>
+            <instanceof
+                  value="org.eclipse.ui.IFileEditorInput">
+            </instanceof></editorInputEnablement>
+         <selectionEnablement>
+            <instanceof
+                  value="com.packtpub.e4.advanced.feeds.ui.Feed">
+            </instanceof>
+         </selectionEnablement>
+      </linkHelper>
    </extension>
 </plugin>
