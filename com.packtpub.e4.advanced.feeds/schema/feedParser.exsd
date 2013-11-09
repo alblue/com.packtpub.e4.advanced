@@ -17,6 +17,9 @@
          </appinfo>
       </annotation>
       <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="feedParser"/>
+         </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
                <documentation>
@@ -76,7 +79,6 @@
          &lt;extension point=&quot;com.packtpub.e4.advanced.feeds.feedParser&quot;&gt;
   &lt;feedParser class=&quot;com.packtpub.e4.advanced.feeds.internal.MockFeedParser&quot;/&gt;
 &lt;/extension&gt;
-
       </documentation>
    </annotation>
 
