@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Feeds
+Bundle-SymbolicName: com.packtpub.e4.advanced.feeds;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: PACKTPUB
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
