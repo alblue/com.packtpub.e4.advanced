@@ -23,6 +23,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.navigator.ILinkHelper;
+import com.packtpub.e4.advanced.feeds.Feed;
 public class FeedLinkHelper implements ILinkHelper {
 	@Override
 	public void activateEditor(IWorkbenchPage page,

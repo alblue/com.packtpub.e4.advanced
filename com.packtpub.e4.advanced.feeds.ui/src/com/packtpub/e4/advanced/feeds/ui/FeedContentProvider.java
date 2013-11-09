@@ -27,6 +27,7 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.progress.UIJob;
+import com.packtpub.e4.advanced.feeds.Feed;
 public class FeedContentProvider implements ITreeContentProvider,
 		IResourceChangeListener {
 	private static final Object[] NO_CHILDREN = new Object[0];

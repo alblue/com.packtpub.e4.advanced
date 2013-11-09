@@ -13,6 +13,7 @@ import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
+import com.packtpub.e4.advanced.feeds.Feed;
 public class FeedLabelProvider implements ILabelProvider {
 	@Override
 	public void addListener(ILabelProviderListener listener) {

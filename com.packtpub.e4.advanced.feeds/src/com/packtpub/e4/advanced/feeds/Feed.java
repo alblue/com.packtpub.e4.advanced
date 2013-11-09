@@ -7,7 +7,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package com.packtpub.e4.advanced.feeds.ui;
+package com.packtpub.e4.advanced.feeds;
 public class Feed {
 	private String name;
 	private String url;

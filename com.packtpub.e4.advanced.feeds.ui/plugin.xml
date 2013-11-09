@@ -38,7 +38,7 @@
          <possibleChildren>
             <or>
                <instanceof
-                     value="com.packtpub.e4.advanced.feeds.ui.Feed">
+                     value="com.packtpub.e4.advanced.feeds.Feed">
                </instanceof>
             </or>
          </possibleChildren>
@@ -81,7 +81,7 @@
                         ifEmpty="false"
                         operator="or">
                      <adapt
-                           type="com.packtpub.e4.advanced.feeds.ui.Feed">
+                           type="com.packtpub.e4.advanced.feeds.Feed">
                      </adapt>
                   </iterate>
                </with>
@@ -100,7 +100,7 @@
             </instanceof></editorInputEnablement>
          <selectionEnablement>
             <instanceof
-                  value="com.packtpub.e4.advanced.feeds.ui.Feed">
+                  value="com.packtpub.e4.advanced.feeds.Feed">
             </instanceof>
          </selectionEnablement>
       </linkHelper>
