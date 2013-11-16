@@ -2,4 +2,10 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension-point id="feedParser" name="feedParser" schema="schema/feedParser.exsd"/>
+   <extension
+         point="com.packtpub.e4.advanced.feeds.feedParser">
+      <feedParser
+            class="com.packtpub.e4.advanced.feeds.internal.MockFeedParser">
+      </feedParser>
+   </extension>
 </plugin>
