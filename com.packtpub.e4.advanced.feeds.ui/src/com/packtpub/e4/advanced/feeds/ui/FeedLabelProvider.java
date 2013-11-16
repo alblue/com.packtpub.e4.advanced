@@ -14,6 +14,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import com.packtpub.e4.advanced.feeds.Feed;
+import com.packtpub.e4.advanced.feeds.FeedItem;
 public class FeedLabelProvider implements ILabelProvider {
 	@Override
 	public void addListener(ILabelProviderListener listener) {
@@ -37,6 +38,8 @@ public class FeedLabelProvider implements ILabelProvider {
 	public String getText(Object element) {
 		if (element instanceof Feed) {
 			return ((Feed) element).getName();
+		} else if (element instanceof FeedItem) {
+			return ((FeedItem)element).getTitle();
 		} else {
 			return null;
 		}
