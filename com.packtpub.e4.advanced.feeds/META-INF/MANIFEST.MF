@@ -6,3 +6,4 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: PACKTPUB
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.packtpub.e4.advanced.feeds
+Require-Bundle: org.eclipse.equinox.registry
