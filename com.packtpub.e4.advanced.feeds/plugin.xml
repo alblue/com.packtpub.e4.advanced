@@ -5,6 +5,9 @@
    <extension
          point="com.packtpub.e4.advanced.feeds.feedParser">
       <feedParser
+            class="com.packtpub.e4.advanced.feeds.internal.RSSFeedParser">
+      </feedParser>
+      <feedParser
             class="com.packtpub.e4.advanced.feeds.internal.MockFeedParser">
       </feedParser>
    </extension>
