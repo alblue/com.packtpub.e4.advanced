@@ -8,6 +8,9 @@
             class="com.packtpub.e4.advanced.feeds.internal.RSSFeedParser">
       </feedParser>
       <feedParser
+            class="com.packtpub.e4.advanced.feeds.internal.AtomFeedParser">
+      </feedParser>
+      <feedParser
             class="com.packtpub.e4.advanced.feeds.internal.MockFeedParser">
       </feedParser>
    </extension>
