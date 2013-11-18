@@ -90,6 +90,39 @@
       </menuContribution>
    </extension>
    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.packtpub.e4.advanced.feeds.ui.ShowFeedItemInBrowserHandler"
+            description="Shows the selected feed item in browser"
+            id="com.packtpub.e4.advanced.feeds.ui.ShowFeedItemInBrowserCommand"
+            name="Show Feed Item in Browser">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
+         <command
+               commandId="com.packtpub.e4.advanced.feeds.ui.ShowFeedItemInBrowserCommand"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <adapt
+                           type="com.packtpub.e4.advanced.feeds.FeedItem">
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
          point="org.eclipse.ui.navigator.linkHelper">
       <linkHelper
             class="com.packtpub.e4.advanced.feeds.ui.FeedLinkHelper"
