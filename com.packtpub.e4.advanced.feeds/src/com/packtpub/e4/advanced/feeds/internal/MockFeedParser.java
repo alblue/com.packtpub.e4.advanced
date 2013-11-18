@@ -17,9 +17,9 @@ public class MockFeedParser implements IFeedParser {
 	@Override
 	public List<FeedItem> parseFeed(Feed feed) {
 		List<FeedItem> items = new ArrayList<FeedItem>(3);
-		items.add(new FeedItem.Builder(feed).setTitle("1st").build());
-		items.add(new FeedItem.Builder(feed).setTitle("2nd").build());
-		items.add(new FeedItem.Builder(feed).setTitle("3rd").build());
+		items.add(new FeedItem.Builder(feed).setTitle("1st").setUrl("http://alblue.bandlem.com").build());
+		items.add(new FeedItem.Builder(feed).setTitle("2nd").setUrl("http://www.packtpub.com").build());
+		items.add(new FeedItem.Builder(feed).setTitle("3rd").setUrl("http://github.com/alblue/com.packtpub.e4.advanced").build());
 		return items;
 	}
 }
