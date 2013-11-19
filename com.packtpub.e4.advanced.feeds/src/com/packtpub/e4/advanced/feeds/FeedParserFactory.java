@@ -9,12 +9,14 @@
  */
 package com.packtpub.e4.advanced.feeds;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.RegistryFactory;
+import com.packtpub.e4.advanced.feeds.internal.FeedParserConfigurationComparator;
 public class FeedParserFactory {
 	private static FeedParserFactory DEFAULT;
 	public static FeedParserFactory getDefault() {
@@ -31,6 +33,7 @@ public class FeedParserFactory {
 		if (extensionPoint != null) {
 			IConfigurationElement[] elements = extensionPoint
 					.getConfigurationElements();
+			Arrays.sort(elements, new FeedParserConfigurationComparator());
 			for (int i = 0; i < elements.length; i++) {
 				IConfigurationElement element = elements[i];
 				try {

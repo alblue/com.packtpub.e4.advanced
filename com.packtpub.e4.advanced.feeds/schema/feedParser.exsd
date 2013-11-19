@@ -59,6 +59,13 @@
                </appinfo>
             </annotation>
          </attribute>
+         <attribute name="priority" type="string">
+            <annotation>
+               <documentation>
+                  Provides a priority ordering as a signed integer between Integer.MIN_VALUE and Integer.MAX_VALUE
+               </documentation>
+            </annotation>
+         </attribute>
       </complexType>
    </element>
 

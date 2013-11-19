@@ -4,14 +4,14 @@
    <extension-point id="feedParser" name="feedParser" schema="schema/feedParser.exsd"/>
    <extension
          point="com.packtpub.e4.advanced.feeds.feedParser">
-      <feedParser
+      <feedParser priority="-1"
+            class="com.packtpub.e4.advanced.feeds.internal.MockFeedParser">
+      </feedParser>
+      <feedParser priority="1"
             class="com.packtpub.e4.advanced.feeds.internal.RSSFeedParser">
       </feedParser>
       <feedParser
             class="com.packtpub.e4.advanced.feeds.internal.AtomFeedParser">
-      </feedParser>
-      <feedParser
-            class="com.packtpub.e4.advanced.feeds.internal.MockFeedParser">
       </feedParser>
    </extension>
 </plugin>
