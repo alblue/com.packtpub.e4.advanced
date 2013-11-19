@@ -24,14 +24,17 @@ import com.packtpub.e4.advanced.feeds.FeedItem;
 import com.packtpub.e4.advanced.feeds.FeedItem.Builder;
 import com.packtpub.e4.advanced.feeds.IFeedParser;
 public class AtomFeedParser implements IFeedParser {
+	private static final String ATOM = "http://www.w3.org/2005/Atom";
 	@Override
 	public List<FeedItem> parseFeed(Feed feed) {
 		try {
 			List<FeedItem> feedItems = new ArrayList<FeedItem>();
-			DocumentBuilder builder = DocumentBuilderFactory.newInstance()
-					.newDocumentBuilder();
+			DocumentBuilderFactory factory = DocumentBuilderFactory
+					.newInstance();
+			factory.setNamespaceAware(true);
+			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(new URL(feed.getUrl()).openStream());
-			NodeList items = doc.getElementsByTagName("entry");
+			NodeList items = doc.getElementsByTagNameNS(ATOM, "entry");
 			for (int i = 0; i < items.getLength(); i++) {
 				Node item = items.item(i);
 				Builder feedItem = new FeedItem.Builder(feed);
@@ -58,7 +61,7 @@ public class AtomFeedParser implements IFeedParser {
 	}
 	private String getTextValueOf(Node item, String element) {
 		try {
-			return ((Element) item).getElementsByTagName(element).item(0)
+			return ((Element) item).getElementsByTagNameNS(ATOM,element).item(0)
 					.getTextContent();
 		} catch (Exception e) {
 			return null;
@@ -67,7 +70,7 @@ public class AtomFeedParser implements IFeedParser {
 	private String getTextValueOfAttribute(Node item, String element,
 			String attribute) {
 		try {
-			return ((Element) item).getElementsByTagName(element).item(0)
+			return ((Element) item).getElementsByTagNameNS(ATOM,element).item(0)
 					.getAttributes().getNamedItem(attribute).getNodeValue();
 		} catch (Exception e) {
 			return null;
