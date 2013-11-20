@@ -15,6 +15,9 @@ import java.util.Date;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExecutableExtension;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -23,7 +26,8 @@ import com.packtpub.e4.advanced.feeds.Feed;
 import com.packtpub.e4.advanced.feeds.FeedItem;
 import com.packtpub.e4.advanced.feeds.FeedItem.Builder;
 import com.packtpub.e4.advanced.feeds.IFeedParser;
-public class RSSFeedParser implements IFeedParser {
+public class RSSFeedParser implements IFeedParser, IExecutableExtension {
+	private int max = Integer.MAX_VALUE;
 	@Override
 	public List<FeedItem> parseFeed(Feed feed) {
 		try {
@@ -32,7 +36,7 @@ public class RSSFeedParser implements IFeedParser {
 					.newDocumentBuilder();
 			Document doc = builder.parse(new URL(feed.getUrl()).openStream());
 			NodeList items = doc.getElementsByTagName("item");
-			for (int i = 0; i < items.getLength(); i++) {
+			for (int i = 0; i < items.getLength() && i < max; i++) {
 				Node item = items.item(i);
 				Builder feedItem = new FeedItem.Builder(feed);
 				feedItem.setTitle(getTextValueOf(item, "title"));
@@ -61,4 +65,14 @@ public class RSSFeedParser implements IFeedParser {
 			return null;
 		}
 	}
-}
+	@Override
+	public void setInitializationData(IConfigurationElement config,
+			String propertyName, Object data) throws CoreException {
+		if (data instanceof String) {
+			try {
+				max = Integer.parseInt((String) data);
+			} catch (Exception e) {
+				// Ignore
+			}
+		}
+	}}

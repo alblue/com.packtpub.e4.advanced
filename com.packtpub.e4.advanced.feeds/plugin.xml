@@ -5,13 +5,13 @@
    <extension
          point="com.packtpub.e4.advanced.feeds.feedParser">
       <feedParser priority="-1"
-            class="com.packtpub.e4.advanced.feeds.internal.MockFeedParser">
+            class="com.packtpub.e4.advanced.feeds.internal.MockFeedParser:1">
       </feedParser>
       <feedParser priority="1"
             class="com.packtpub.e4.advanced.feeds.internal.RSSFeedParser">
       </feedParser>
       <feedParser
-            class="com.packtpub.e4.advanced.feeds.internal.AtomFeedParser">
+            class="com.packtpub.e4.advanced.feeds.internal.AtomFeedParser:1">
       </feedParser>
    </extension>
 </plugin>
