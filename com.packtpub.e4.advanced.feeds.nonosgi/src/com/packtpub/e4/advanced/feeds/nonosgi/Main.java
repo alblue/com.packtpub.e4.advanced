@@ -8,6 +8,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 package com.packtpub.e4.advanced.feeds.nonosgi;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
@@ -18,23 +19,31 @@ import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.RegistryFactory;
 import org.eclipse.core.runtime.spi.IRegistryProvider;
+import org.eclipse.core.runtime.spi.RegistryStrategy;
 import com.packtpub.e4.advanced.feeds.FeedParserFactory;
 public class Main {
 	public static void main(String[] args) throws CoreException, IOException {
 		RegistryFactory.setDefaultRegistryProvider(new IRegistryProvider() {
 			private final IExtensionRegistry registry = RegistryFactory
-					.createRegistry(null, null, null);
+					.createRegistry(getRegistryStrategy(), null, null);
 			@Override
 			public IExtensionRegistry getRegistry() {
 				return registry;
+			}
+			private RegistryStrategy getRegistryStrategy() {
+				File cache = new File(System.getProperty("java.io.tmpdir"),
+						"cache");
+				return new RegistryStrategy(new File[] { cache },
+						new boolean[] { false });
 			}
 		});
 		IExtensionRegistry reg = RegistryFactory.getRegistry();
 		IContributor contributor = ContributorFactorySimple
 				.createContributor("com.packtpub.e4.advanced.feeds");
+		boolean persist = true;
 		String plugin_xml = "../com.packtpub.e4.advanced.feeds/plugin.xml";
-		reg.addContribution(new FileInputStream(plugin_xml), contributor,
-				false, plugin_xml, null, null);
+		reg.addContribution(new FileInputStream(plugin_xml), contributor, persist,
+				plugin_xml, null, null);
 		IExtensionPoint extensionPoint = reg.getExtensionPoint(
 				"com.packtpub.e4.advanced.feeds", "feedParser");
 		System.out.println(Arrays.asList(extensionPoint.getExtensions()));
