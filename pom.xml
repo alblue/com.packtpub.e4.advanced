@@ -19,6 +19,7 @@
   </properties>
   <modules>
     <module>com.packtpub.e4.advanced.feeds</module>
+    <module>com.packtpub.e4.advanced.feeds.nonosgi</module>
     <module>com.packtpub.e4.advanced.feeds.ui</module>
   </modules>
   <build>

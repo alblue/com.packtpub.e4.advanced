@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="org.eclipse.equinox.common_3.6.200.v20130402-1505.jar"/>
+	<classpathentry kind="lib" path="org.eclipse.equinox.registry_3.5.400.v20140428-1507.jar"/>
+	<classpathentry kind="lib" path="org.eclipse.equinox.supplement_1.5.100.v20140428-1446.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.packtpub.e4.advanced.feeds"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

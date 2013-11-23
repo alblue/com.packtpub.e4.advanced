@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.packtpub.e4.advanced</groupId>
+	<artifactId>com.packtpub.e4.advanced.feeds.nonosgi</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<properties>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- use this to prevent superfluous warnings in maven -->
+		<libdir>${project.basedir}</libdir>
+	</properties>
+	<dependencies>
+		<!-- Tycho and non-Tycho builds cannot be mixed, so build feeds first and then this -->
+		<dependency>
+			<groupId>com.packtpub.e4.advanced</groupId>
+			<artifactId>com.packtpub.e4.advanced.feeds</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${libdir}/../com.packtpub.e4.advanced.feeds/target/com.packtpub.e4.advanced.feeds-1.0.0-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse</groupId>
+			<artifactId>org.eclipse.equinox.common</artifactId>
+			<version>3.6.200.v20130402-1505</version>
+			<scope>system</scope>
+			<systemPath>${libdir}/org.eclipse.equinox.common_3.6.200.v20130402-1505.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse</groupId>
+			<artifactId>org.eclipse.equinox.registry</artifactId>
+			<version>3.5.400.v20140428-1507</version>
+			<scope>system</scope>
+			<systemPath>${libdir}/org.eclipse.equinox.registry_3.5.400.v20140428-1507.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse</groupId>
+			<artifactId>org.eclipse.equinox.supplement</artifactId>
+			<version>1.5.100.v20140428-1446</version>
+			<scope>system</scope>
+			<systemPath>${libdir}/org.eclipse.equinox.supplement_1.5.100.v20140428-1446.jar</systemPath>
+		</dependency>
+	</dependencies>
+	<build>
+		<!-- convention for eclipse-plugin is just src -->
+		<sourceDirectory>src</sourceDirectory>
+		<outputDirectory>bin</outputDirectory>
+	</build>
+</project>
