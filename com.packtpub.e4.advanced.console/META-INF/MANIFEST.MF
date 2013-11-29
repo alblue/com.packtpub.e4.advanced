@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Console
+Bundle-SymbolicName: com.packtpub.e4.advanced.console
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: PACKTPUB
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: com.packtpub.e4.advanced.console
+Service-Component: OSGI-INF/*.xml
+Import-Package: org.osgi.framework

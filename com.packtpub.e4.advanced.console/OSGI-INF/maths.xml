@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="MathsCommand">
+   <implementation class="com.packtpub.e4.advanced.console.MathsCommand"/>
+   <property name="osgi.command.scope" type="String" value="maths"/>
+   <property name="osgi.command.function" type="String">add
+subtract
+divide
+multiply
+   </property>
+   <service>
+      <provide interface="java.lang.Object"/>
+   </service>
+</scr:component>
