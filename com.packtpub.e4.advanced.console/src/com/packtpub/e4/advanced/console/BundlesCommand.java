@@ -8,6 +8,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 package com.packtpub.e4.advanced.console;
+import java.util.Arrays;
+import java.util.List;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 public class BundlesCommand {
@@ -22,5 +24,8 @@ public class BundlesCommand {
 			System.out.println(bundle.getBundleId() + " "
 					+ bundle.getSymbolicName());
 		}
+	}
+	public List<Bundle> list() {
+		return Arrays.asList(context.getBundles());
 	}
 }
