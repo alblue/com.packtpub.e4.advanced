@@ -1,0 +1,4 @@
+configuration/*.log
+configuration/hostkey.ser
+configuration/store
+configuration/org.eclipse.osgi
