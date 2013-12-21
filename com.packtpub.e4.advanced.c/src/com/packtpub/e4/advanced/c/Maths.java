@@ -13,5 +13,8 @@ public class Maths {
 		System.loadLibrary("other");
 		System.loadLibrary("maths");
 	}
-	public native static int add(int a, int b);
+	private native static int nativeAdd(int a, int b);
+	public static int add(int a, int b) {
+		return nativeAdd(a,b);
+	}
 }
