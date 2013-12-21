@@ -10,6 +10,7 @@
 package com.packtpub.e4.advanced.c;
 public class Maths {
 	static {
+		System.loadLibrary("other");
 		System.loadLibrary("maths");
 	}
 	public native static int add(int a, int b);
