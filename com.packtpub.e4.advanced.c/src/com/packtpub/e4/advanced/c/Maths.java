@@ -14,7 +14,12 @@ public class Maths {
 		System.loadLibrary("maths");
 	}
 	private native static int nativeAdd(int a, int b);
-	public static int add(int a, int b) {
-		return nativeAdd(a,b);
+	public static long add(long a, long b) {
+		if (a < Integer.MAX_VALUE / 2 && a > Integer.MIN_VALUE / 2
+				&& b < Integer.MAX_VALUE / 2 && b > Integer.MIN_VALUE / 2) {
+			return nativeAdd((int) a, (int) b);
+		} else {
+			return a + b;
+		}
 	}
 }
