@@ -8,11 +8,15 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 package com.packtpub.e4.advanced.loader.consumer;
+import java.util.ServiceLoader;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 public class Activator implements BundleActivator {
 	@Override
 	public void start(BundleContext context) throws Exception {
+		ServiceLoader<Runnable> sl = ServiceLoader.load(Runnable.class);
+		Runnable runnable = sl.iterator().next();
+		runnable.run();
 	}
 	@Override
 	public void stop(BundleContext context) throws Exception {
