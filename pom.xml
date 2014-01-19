@@ -23,6 +23,9 @@
     <module>com.packtpub.e4.advanced.feeds</module>
     <module>com.packtpub.e4.advanced.feeds.nonosgi</module>
     <module>com.packtpub.e4.advanced.feeds.ui</module>
+<!-- The Luna bundles do not support Require-Capability at this time
+    <module>com.packtpub.e4.advanced.loader.producer</module>
+-->
   </modules>
   <build>
     <plugins>

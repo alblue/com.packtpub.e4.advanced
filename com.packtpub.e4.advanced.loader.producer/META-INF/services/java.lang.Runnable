@@ -1,0 +1,3 @@
+# When invoked with ServiceLoader.load(Runnable.class)
+# the following will be instantiated
+com.packtpub.e4.advanced.loader.producer.HelloWorldRunnable
