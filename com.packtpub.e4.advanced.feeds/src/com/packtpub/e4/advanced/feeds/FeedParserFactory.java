@@ -9,14 +9,12 @@
  */
 package com.packtpub.e4.advanced.feeds;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtensionPoint;
-import org.eclipse.core.runtime.IExtensionRegistry;
-import org.eclipse.core.runtime.RegistryFactory;
-import com.packtpub.e4.advanced.feeds.internal.FeedParserConfigurationComparator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.InvalidSyntaxException;
+import org.osgi.framework.ServiceReference;
+import com.packtpub.e4.advanced.feeds.internal.FeedsActivator;
 public class FeedParserFactory {
 	private static FeedParserFactory DEFAULT;
 	public static FeedParserFactory getDefault() {
@@ -26,25 +24,17 @@ public class FeedParserFactory {
 		return DEFAULT;
 	}
 	public List<IFeedParser> getFeedParsers() {
-		ArrayList<IFeedParser> parsers = new ArrayList<IFeedParser>();
-		IExtensionRegistry registry = RegistryFactory.getRegistry();
-		IExtensionPoint extensionPoint = registry.getExtensionPoint(
-				"com.packtpub.e4.advanced.feeds", "feedParser");
-		if (extensionPoint != null) {
-			IConfigurationElement[] elements = extensionPoint
-					.getConfigurationElements();
-			Arrays.sort(elements, new FeedParserConfigurationComparator());
-			for (int i = 0; i < elements.length; i++) {
-				IConfigurationElement element = elements[i];
-				try {
-					Object parser = element.createExecutableExtension("class");
-					if (parser instanceof IFeedParser) {
-						parsers.add((IFeedParser) parser);
-					}
-				} catch (CoreException e) {
-					// ignore or log as appropriate
-				}
+		List<IFeedParser> parsers = new ArrayList<IFeedParser>();
+		BundleContext context = FeedsActivator.getContext();
+		try {
+			Collection<ServiceReference<IFeedParser>> references = 
+				context.getServiceReferences(IFeedParser.class, null);
+			for (ServiceReference<IFeedParser> reference : references) {
+				parsers.add(context.getService(reference));
+				context.ungetService(reference);
 			}
+		} catch (InvalidSyntaxException e) {
+			// ignore
 		}
 		return parsers;
 	}
