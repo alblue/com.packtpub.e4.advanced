@@ -14,6 +14,7 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import com.packtpub.e4.advanced.feeds.IFeedParser;
 public class FeedsActivator implements BundleActivator {
+	private static BundleContext bundleContext;
 	private Dictionary<String,Object> priority(int priority) {
 		Hashtable<String, Object> dict = new Hashtable<String,Object>();
 		dict.put("service.ranking", new Integer(priority));
@@ -24,8 +25,13 @@ public class FeedsActivator implements BundleActivator {
 		context.registerService(IFeedParser.class, new RSSFeedParser(), priority(1));
 		context.registerService(IFeedParser.class, new MockFeedParser(), priority(-1));
 		context.registerService(IFeedParser.class, new AtomFeedParser(), priority(2));
+		bundleContext = context;
 	}
 	@Override
 	public void stop(BundleContext context) throws Exception {
+		bundleContext = null;
+	}
+	public static BundleContext getContext() {
+		return bundleContext;
 	}
 }
