@@ -7,3 +7,5 @@ Bundle-Vendor: PACKTPUB
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.packtpub.e4.advanced.feeds
 Require-Bundle: org.eclipse.equinox.registry
+Import-Package: org.osgi.framework
+Bundle-Activator: com.packtpub.e4.advanced.feeds.internal.FeedsActivator
