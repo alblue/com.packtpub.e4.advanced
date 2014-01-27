@@ -10,13 +10,15 @@
 package com.packtpub.e4.advanced.feeds.internal;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+import com.packtpub.e4.advanced.feeds.IFeedParser;
 public class FeedsActivator implements BundleActivator {
 	@Override
 	public void start(BundleContext context) throws Exception {
-		System.out.println("Bundle started");
+		context.registerService(IFeedParser.class, new RSSFeedParser(), null);
+		context.registerService(IFeedParser.class, new AtomFeedParser(), null);
+		context.registerService(IFeedParser.class, new MockFeedParser(), null);
 	}
 	@Override
 	public void stop(BundleContext context) throws Exception {
-		System.out.println("Bundle stopped");
 	}
 }
