@@ -6,4 +6,5 @@
 	<service>
 		<provide interface="com.packtpub.e4.advanced.feeds.IFeedParser" />
 	</service>
+	<property name="service.ranking" type="Integer" value="2"/>
 </scr:component> 
