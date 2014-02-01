@@ -8,23 +8,20 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 package com.packtpub.e4.advanced.feeds.internal;
-import java.util.Dictionary;
-import java.util.Hashtable;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-import com.packtpub.e4.advanced.feeds.IFeedParser;
 public class FeedsActivator implements BundleActivator {
 	private static BundleContext bundleContext;
-	private Dictionary<String,Object> priority(int priority) {
-		Hashtable<String, Object> dict = new Hashtable<String,Object>();
-		dict.put("service.ranking", new Integer(priority));
-		return dict;
-	}
+	// private Dictionary<String,Object> priority(int priority) {
+	//	Hashtable<String, Object> dict = new Hashtable<String,Object>();
+	//	dict.put("service.ranking", new Integer(priority));
+	//	return dict;
+	// }
 	@Override
 	public void start(BundleContext context) throws Exception {
-		context.registerService(IFeedParser.class, new RSSFeedParser(), priority(1));
-		context.registerService(IFeedParser.class, new MockFeedParser(), priority(-1));
-		context.registerService(IFeedParser.class, new AtomFeedParser(), priority(2));
+		// context.registerService(IFeedParser.class, new RSSFeedParser(), priority(1));
+		// context.registerService(IFeedParser.class, new MockFeedParser(), priority(-1));
+		// context.registerService(IFeedParser.class, new AtomFeedParser(), priority(2));
 		bundleContext = context;
 	}
 	@Override
