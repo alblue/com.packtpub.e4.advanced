@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+    <scr:component name="RSSFeedParser">
+        <implementation class="com.packtpub.e4.advanced.feeds.internal.RSSFeedParser"/>
+        <service servicefactory="false">
+            <provide interface="com.packtpub.e4.advanced.feeds.IFeedParser"/>
+        </service>
+        <property name="service.ranking" type="Integer" value="1"/>
+    </scr:component>
+</components>
