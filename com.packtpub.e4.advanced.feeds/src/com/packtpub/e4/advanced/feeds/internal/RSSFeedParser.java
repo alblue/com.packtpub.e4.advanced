@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import org.osgi.service.component.annotations.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -23,6 +24,7 @@ import com.packtpub.e4.advanced.feeds.Feed;
 import com.packtpub.e4.advanced.feeds.FeedItem;
 import com.packtpub.e4.advanced.feeds.FeedItem.Builder;
 import com.packtpub.e4.advanced.feeds.IFeedParser;
+@Component(name="RSSFeedParser",service={IFeedParser.class},property={"service.ranking:Integer=1"})
 public class RSSFeedParser implements IFeedParser {
 	private int max = Integer.MAX_VALUE;
 	@Override
