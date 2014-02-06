@@ -2,7 +2,6 @@
 	<service ranking="-1" activation="eager">
 		<interfaces>
 			<value>com.packtpub.e4.advanced.feeds.IFeedParser</value>
-			<!-- value>java.lang.Cloneable</value -->
 		</interfaces>
 		<service-properties>
 			<entry key="other.property">
@@ -12,6 +11,8 @@
 				</array>
 			</entry>
 		</service-properties>
-		<bean class="com.packtpub.e4.advanced.feeds.internal.MockFeedParser" />
+		<bean class="com.packtpub.e4.advanced.feeds.internal.MockFeedParser">
+			<property name="numberOfItems" value="5"/>
+		</bean>
 	</service>
 </blueprint>

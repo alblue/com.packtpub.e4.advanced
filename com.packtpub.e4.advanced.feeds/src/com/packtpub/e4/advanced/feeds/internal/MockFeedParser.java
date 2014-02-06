@@ -14,12 +14,17 @@ import com.packtpub.e4.advanced.feeds.Feed;
 import com.packtpub.e4.advanced.feeds.FeedItem;
 import com.packtpub.e4.advanced.feeds.IFeedParser;
 public class MockFeedParser implements IFeedParser {
+	private int numberOfItems = 3;
 	@Override
 	public List<FeedItem> parseFeed(Feed feed) {
-		List<FeedItem> items = new ArrayList<FeedItem>(3);
-		items.add(new FeedItem.Builder(feed).setTitle("1st").setUrl("http://alblue.bandlem.com").build());
-		items.add(new FeedItem.Builder(feed).setTitle("2nd").setUrl("http://www.packtpub.com").build());
-		items.add(new FeedItem.Builder(feed).setTitle("3rd").setUrl("http://github.com/alblue/com.packtpub.e4.advanced").build());
+		List<FeedItem> items = new ArrayList<FeedItem>(numberOfItems);
+		for (int i = 0; i < numberOfItems; i++) {
+			items.add(new FeedItem.Builder(feed).setTitle("Item " + i)
+					.setUrl("http://example.com/item/" + i).build());
+		}
 		return items;
+	}
+	public void setNumberOfItems(int numberOfItems) {
+		this.numberOfItems = numberOfItems;
 	}
 }
