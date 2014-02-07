@@ -10,11 +10,13 @@
 package com.packtpub.e4.advanced.feeds.internal;
 import java.util.ArrayList;
 import java.util.List;
+import org.osgi.service.log.LogService;
 import com.packtpub.e4.advanced.feeds.Feed;
 import com.packtpub.e4.advanced.feeds.FeedItem;
 import com.packtpub.e4.advanced.feeds.IFeedParser;
 public class MockFeedParser implements IFeedParser {
 	private int numberOfItems = 3;
+	private LogService log;
 	@Override
 	public List<FeedItem> parseFeed(Feed feed) {
 		List<FeedItem> items = new ArrayList<FeedItem>(numberOfItems);
@@ -26,5 +28,12 @@ public class MockFeedParser implements IFeedParser {
 	}
 	public void setNumberOfItems(int numberOfItems) {
 		this.numberOfItems = numberOfItems;
+		if (log != null) {
+			log.log(LogService.LOG_INFO, "Setting number of items to "
+					+ numberOfItems);
+		}
+	}
+	public void setLog(LogService log) {
+		this.log = log;
 	}
 }
