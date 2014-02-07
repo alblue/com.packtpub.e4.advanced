@@ -15,9 +15,6 @@ import java.util.Date;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExecutableExtension;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -26,7 +23,7 @@ import com.packtpub.e4.advanced.feeds.Feed;
 import com.packtpub.e4.advanced.feeds.FeedItem;
 import com.packtpub.e4.advanced.feeds.FeedItem.Builder;
 import com.packtpub.e4.advanced.feeds.IFeedParser;
-public class AtomFeedParser implements IFeedParser, IExecutableExtension {
+public class AtomFeedParser implements IFeedParser {
 	private static final String ATOM = "http://www.w3.org/2005/Atom";
 	private int max = Integer.MAX_VALUE;
 	@Override
@@ -65,8 +62,8 @@ public class AtomFeedParser implements IFeedParser, IExecutableExtension {
 	}
 	private String getTextValueOf(Node item, String element) {
 		try {
-			return ((Element) item).getElementsByTagNameNS(ATOM,element).item(0)
-					.getTextContent();
+			return ((Element) item).getElementsByTagNameNS(ATOM, element)
+					.item(0).getTextContent();
 		} catch (Exception e) {
 			return null;
 		}
@@ -74,21 +71,11 @@ public class AtomFeedParser implements IFeedParser, IExecutableExtension {
 	private String getTextValueOfAttribute(Node item, String element,
 			String attribute) {
 		try {
-			return ((Element) item).getElementsByTagNameNS(ATOM,element).item(0)
-					.getAttributes().getNamedItem(attribute).getNodeValue();
+			return ((Element) item).getElementsByTagNameNS(ATOM, element)
+					.item(0).getAttributes().getNamedItem(attribute)
+					.getNodeValue();
 		} catch (Exception e) {
 			return null;
-		}
-	}
-	@Override
-	public void setInitializationData(IConfigurationElement config,
-			String propertyName, Object data) throws CoreException {
-		if (data instanceof String) {
-			try {
-				max = Integer.parseInt((String) data);
-			} catch (Exception e) {
-				// Ignore
-			}
 		}
 	}
 }
