@@ -8,15 +8,18 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 package com.packtpub.e4.advanced.feeds;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.List;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.InvalidSyntaxException;
-import org.osgi.framework.ServiceReference;
+import org.osgi.util.tracker.ServiceTracker;
 import com.packtpub.e4.advanced.feeds.internal.FeedsActivator;
 public class FeedParserFactory {
 	private static FeedParserFactory DEFAULT;
+	private final ServiceTracker<IFeedParser, IFeedParser> st;
+	private FeedParserFactory() {
+		st = new ServiceTracker<IFeedParser, IFeedParser>(
+				FeedsActivator.getContext(), IFeedParser.class, null);
+		st.open();
+	}
 	public static FeedParserFactory getDefault() {
 		if (DEFAULT == null) {
 			DEFAULT = new FeedParserFactory();
@@ -24,18 +27,11 @@ public class FeedParserFactory {
 		return DEFAULT;
 	}
 	public List<IFeedParser> getFeedParsers() {
-		List<IFeedParser> parsers = new ArrayList<IFeedParser>();
-		BundleContext context = FeedsActivator.getContext();
-		try {
-			Collection<ServiceReference<IFeedParser>> references = 
-				context.getServiceReferences(IFeedParser.class, null);
-			for (ServiceReference<IFeedParser> reference : references) {
-				parsers.add(context.getService(reference));
-				context.ungetService(reference);
-			}
-		} catch (InvalidSyntaxException e) {
-			// ignore
-		}
-		return parsers;
+		return Arrays.asList(st.getServices(new IFeedParser[] {}));
+	}
+	@Override
+	protected void finalize() throws Throwable {
+		st.close();
+		super.finalize();
 	}
 }
