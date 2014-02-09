@@ -14,15 +14,15 @@ import java.util.Comparator;
 import java.util.List;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Filter;
+import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;
-import com.packtpub.e4.advanced.feeds.internal.FeedsActivator;
 public class FeedParserFactory {
 	private static FeedParserFactory DEFAULT;
 	private final ServiceTracker<IFeedParser, IFeedParser> st;
 	private FeedParserFactory() {
-		BundleContext context = FeedsActivator.getContext();
+		BundleContext context = FrameworkUtil.getBundle(FeedParserFactory.class).getBundleContext();
 		Filter filter = null;
 		try {
 			filter = context
