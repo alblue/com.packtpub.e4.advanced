@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Filter;
+import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;
 import com.packtpub.e4.advanced.feeds.internal.FeedsActivator;
@@ -19,8 +22,21 @@ public class FeedParserFactory {
 	private static FeedParserFactory DEFAULT;
 	private final ServiceTracker<IFeedParser, IFeedParser> st;
 	private FeedParserFactory() {
-		st = new ServiceTracker<IFeedParser, IFeedParser>(
-				FeedsActivator.getContext(), IFeedParser.class, null);
+		BundleContext context = FeedsActivator.getContext();
+		Filter filter = null;
+		try {
+			filter = context
+					.createFilter("(&(objectClass=com.packtpub.e4.advanced.feeds.IFeedParser))");
+			// .createFilter("(&(objectClass=*.IFeedParser)(!(component.id=*)))");
+		} catch (InvalidSyntaxException e) {
+		}
+		if (filter == null) {
+			st = new ServiceTracker<IFeedParser, IFeedParser>(context,
+					IFeedParser.class, null);
+		} else {
+			st = new ServiceTracker<IFeedParser, IFeedParser>(context, filter,
+					null);
+		}
 		st.open();
 	}
 	public static FeedParserFactory getDefault() {
