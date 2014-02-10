@@ -8,8 +8,11 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 package com.packtpub.e4.advanced.feeds;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;
 import com.packtpub.e4.advanced.feeds.internal.FeedsActivator;
 public class FeedParserFactory {
@@ -27,7 +30,18 @@ public class FeedParserFactory {
 		return DEFAULT;
 	}
 	public List<IFeedParser> getFeedParsers() {
-		return Arrays.asList(st.getServices(new IFeedParser[] {}));
+		ServiceReference<IFeedParser>[] refs = st.getServiceReferences();
+		Arrays.sort(refs, new Comparator<ServiceReference<?>>() {
+			@Override
+			public int compare(ServiceReference<?> o1, ServiceReference<?> o2) {
+				return o2.compareTo(o1);
+			}
+		});
+		List<IFeedParser> list = new ArrayList<IFeedParser>(refs.length);
+		for (ServiceReference<IFeedParser> ref : refs) {
+			list.add(st.getService(ref));
+		}
+		return list;
 	}
 	@Override
 	protected void finalize() throws Throwable {
