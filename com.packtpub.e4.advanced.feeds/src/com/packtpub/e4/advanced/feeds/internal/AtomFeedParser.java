@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import org.osgi.service.log.LogService;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -25,7 +26,40 @@ import com.packtpub.e4.advanced.feeds.FeedItem.Builder;
 import com.packtpub.e4.advanced.feeds.IFeedParser;
 public class AtomFeedParser implements IFeedParser {
 	private static final String ATOM = "http://www.w3.org/2005/Atom";
+	private LogService log;
 	private int max = Integer.MAX_VALUE;
+	private String getTextValueOf(Node item, String element) {
+		try {
+			return ((Element) item).getElementsByTagNameNS(ATOM, element)
+					.item(0).getTextContent();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	private String getTextValueOfAttribute(Node item, String element,
+			String attribute) {
+		try {
+			return ((Element) item).getElementsByTagNameNS(ATOM, element)
+					.item(0).getAttributes().getNamedItem(attribute)
+					.getNodeValue();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	private Date parseDate(String date) {
+		try {
+			if (date.length() > 22 && date.charAt(22) == ':') {
+				// Java doesn't handle : in the time zone format
+				date = date.substring(0, 22) + date.substring(23);
+			}
+			return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(date);
+		} catch (Exception e) {
+			if (log != null) {
+				log.log(LogService.LOG_WARNING, "Problem parsing date " + date );
+			}
+			return null;
+		}
+	}
 	@Override
 	public List<FeedItem> parseFeed(Feed feed) {
 		try {
@@ -44,38 +78,21 @@ public class AtomFeedParser implements IFeedParser {
 				feedItem.setDate(parseDate(getTextValueOf(item, "updated")));
 				feedItems.add(feedItem.build());
 			}
+			if(log != null) {
+				log.log(LogService.LOG_INFO, feedItems.size() + " atom feed items parsed from " + feed.getUrl());
+			}
 			return feedItems;
 		} catch (Exception e) {
-			return null;
-		}
-	}
-	private Date parseDate(String date) {
-		try {
-			if (date.length() > 22 && date.charAt(22) == ':') {
-				// Java doesn't handle : in the time zone format
-				date = date.substring(0, 22) + date.substring(23);
+			if (log != null) {
+				log.log(LogService.LOG_WARNING, "Problem parsing feed " + e);
 			}
-			return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(date);
-		} catch (Exception e) {
 			return null;
 		}
 	}
-	private String getTextValueOf(Node item, String element) {
-		try {
-			return ((Element) item).getElementsByTagNameNS(ATOM, element)
-					.item(0).getTextContent();
-		} catch (Exception e) {
-			return null;
-		}
+	public void setLog(LogService log) {
+		this.log = log;
 	}
-	private String getTextValueOfAttribute(Node item, String element,
-			String attribute) {
-		try {
-			return ((Element) item).getElementsByTagNameNS(ATOM, element)
-					.item(0).getAttributes().getNamedItem(attribute)
-					.getNodeValue();
-		} catch (Exception e) {
-			return null;
-		}
+	public void unsetLog(LogService log) {
+		this.log = null;
 	}
 }
