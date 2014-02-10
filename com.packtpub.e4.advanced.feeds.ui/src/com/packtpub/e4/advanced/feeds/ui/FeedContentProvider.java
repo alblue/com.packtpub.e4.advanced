@@ -81,6 +81,10 @@ public class FeedContentProvider implements ITreeContentProvider,
 			FeedParserFactory factory = FeedParserFactory.getDefault();
 			List<IFeedParser> parsers = factory.getFeedParsers();
 			for (IFeedParser parser : parsers) {
+				if(Activator.getDefault().isDebug()) {
+					if(!parser.getClass().getName().contains("Mock"))
+						continue;
+				}
 				List<FeedItem> items = parser.parseFeed(feed);
 				if(items != null && !items.isEmpty()) {
 					return items.toArray();
