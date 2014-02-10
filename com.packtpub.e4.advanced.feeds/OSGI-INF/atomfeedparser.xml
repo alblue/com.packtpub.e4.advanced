@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0"
+	modified="configure" activate="configure"
 	name="AtomFeedParser">
 	<implementation
 		class="com.packtpub.e4.advanced.feeds.internal.AtomFeedParser" />

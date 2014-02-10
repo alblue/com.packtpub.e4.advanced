@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.osgi.service.log.LogService;
@@ -28,6 +29,19 @@ public class AtomFeedParser implements IFeedParser {
 	private static final String ATOM = "http://www.w3.org/2005/Atom";
 	private LogService log;
 	private int max = Integer.MAX_VALUE;
+	public void configure(Map<String, Object> properties) {
+		max = Integer.MAX_VALUE;
+		if (properties != null) {
+			String maxStr = (String) properties.get("max");
+			if (maxStr != null) {
+				max = Integer.parseInt(maxStr);
+			}
+		}
+		if (log != null) {
+			log.log(LogService.LOG_INFO, "Configuring max with " + max);
+		}
+		System.out.println("Configuring max with " + max);
+	}
 	private String getTextValueOf(Node item, String element) {
 		try {
 			return ((Element) item).getElementsByTagNameNS(ATOM, element)
@@ -55,7 +69,7 @@ public class AtomFeedParser implements IFeedParser {
 			return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(date);
 		} catch (Exception e) {
 			if (log != null) {
-				log.log(LogService.LOG_WARNING, "Problem parsing date " + date );
+				log.log(LogService.LOG_WARNING, "Problem parsing date " + date);
 			}
 			return null;
 		}
@@ -78,8 +92,9 @@ public class AtomFeedParser implements IFeedParser {
 				feedItem.setDate(parseDate(getTextValueOf(item, "updated")));
 				feedItems.add(feedItem.build());
 			}
-			if(log != null) {
-				log.log(LogService.LOG_INFO, feedItems.size() + " atom feed items parsed from " + feed.getUrl());
+			if (log != null) {
+				log.log(LogService.LOG_INFO, feedItems.size()
+						+ " atom feed items parsed from " + feed.getUrl());
 			}
 			return feedItems;
 		} catch (Exception e) {
