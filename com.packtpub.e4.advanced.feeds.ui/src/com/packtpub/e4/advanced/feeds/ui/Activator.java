@@ -15,6 +15,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.service.cm.ConfigurationException;
 import org.osgi.service.cm.ManagedService;
+import org.osgi.service.cm.ManagedServiceFactory;
 /**
  * The activator class controls the plug-in life cycle
  */
@@ -50,6 +51,9 @@ public class Activator extends AbstractUIPlugin implements ManagedService {
 		properties.put(Constants.SERVICE_PID, EmptyFeedParser.class.getName());
 		context.registerService(ManagedService.class, new EmptyFeedParser(),
 				properties);
+		properties = new Hashtable<String, String>();
+		properties.put(Constants.SERVICE_PID, EchoServiceFactory.class.getName());
+		context.registerService(ManagedServiceFactory.class, new EchoServiceFactory(), properties);
 	}
 	/*
 	 * (non-Javadoc)
