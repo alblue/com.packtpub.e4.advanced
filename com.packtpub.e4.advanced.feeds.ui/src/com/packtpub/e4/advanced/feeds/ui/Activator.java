@@ -46,6 +46,10 @@ public class Activator extends AbstractUIPlugin implements ManagedService {
 		properties.put(Constants.SERVICE_PID,
 				"com.packtpub.e4.advanced.feeds.ui");
 		context.registerService(ManagedService.class, this, properties);
+		properties = new Hashtable<String, String>();
+		properties.put(Constants.SERVICE_PID, EmptyFeedParser.class.getName());
+		context.registerService(ManagedService.class, new EmptyFeedParser(),
+				properties);
 	}
 	/*
 	 * (non-Javadoc)
