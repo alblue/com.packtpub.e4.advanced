@@ -26,7 +26,11 @@
 <!-- The Luna bundles do not support Require-Capability at this time
     <module>com.packtpub.e4.advanced.loader.consumer</module>
     <module>com.packtpub.e4.advanced.loader.producer</module>
+    <module>com.packtpub.e4.advanced.log.client</module>
 -->
+    <module>com.packtpub.e4.advanced.log.logger</module>
+    <module>com.packtpub.e4.advanced.log.merge</module>
+    <module>com.packtpub.e4.advanced.log.other</module>
   </modules>
   <build>
     <plugins>

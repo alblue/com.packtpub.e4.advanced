@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.packtpub.e4.advanced.log.client
+Bundle-SymbolicName: com.packtpub.e4.advanced.log.client
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.packtpub.e4.advanced.log.client.internal.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Needed-For-Tycho-Require-Bundle: com.packtpub.e4.advanced.log.merge
+Import-Package: com.packtpub.e4.advanced.log,
+ org.osgi.framework;version="1.3.0"
