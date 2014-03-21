@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.packtpub.e4.advanced.event.mailman.mailman">
+   <implementation class="com.packtpub.e4.advanced.event.mailman.MailSender"/>
+   <service>
+      <provide interface="org.osgi.service.event.EventHandler"/>
+   </service>
+   <reference bind="setLogService" cardinality="0..1" interface="org.osgi.service.log.LogService" name="LogService" policy="dynamic"/>
+   <property name="event.topics" value="smtp/*"/>
+</scr:component>
