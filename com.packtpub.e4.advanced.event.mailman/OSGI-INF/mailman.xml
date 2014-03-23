@@ -6,4 +6,5 @@
    </service>
    <reference bind="setLogService" cardinality="0..1" interface="org.osgi.service.log.LogService" name="LogService" policy="dynamic"/>
    <property name="event.topics" value="smtp/*"/>
+   <property name="event.filter" value="(Subject=Hello World)"/>
 </scr:component>
