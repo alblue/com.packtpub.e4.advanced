@@ -1,0 +1,8 @@
+# Add the EGit repository when this bundle is configured
+
+instructions.install=\
+ addRepository(type:0,location:http${#58}//download.eclipse.org/egit/updates/,name:EGit Update Site);\
+ addRepository(type:1,location:http${#58}//download.eclipse.org/egit/updates/,name:EGit Update Site)
+instructions.uninstall=\
+ removeRepository(type:0,location:http${#58}//download.eclipse.org/egit/updates/,name:EGit Update Site);\
+ removeRepository(type:1,location:http${#58}//download.eclipse.org/egit/updates/,name:EGit Update Site)

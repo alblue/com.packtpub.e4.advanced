@@ -35,6 +35,7 @@
     <module>com.packtpub.e4.advanced.log.logger</module>
     <module>com.packtpub.e4.advanced.log.merge</module>
     <module>com.packtpub.e4.advanced.log.other</module>
+    <module>com.packtpub.e4.advanced.p2.touchpoints</module>
   </modules>
   <build>
     <plugins>
