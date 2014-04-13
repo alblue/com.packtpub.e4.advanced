@@ -2,10 +2,15 @@
 
 instructions.install=\
  addRepository(type:0,location:http${#58}//download.eclipse.org/egit/updates/,name:EGit Update Site);\
- addRepository(type:1,location:http${#58}//download.eclipse.org/egit/updates/,name:EGit Update Site)
+ addRepository(type:1,location:http${#58}//download.eclipse.org/egit/updates/,name:EGit Update Site);\
+ addProgramArg(programArg:--launcher.XXMaxPermSize,programArgValue:512m);\
+ addJvmArg(jvmArg:-Xmx2048m);
+
 instructions.uninstall=\
  removeRepository(type:0,location:http${#58}//download.eclipse.org/egit/updates/,name:EGit Update Site);\
- removeRepository(type:1,location:http${#58}//download.eclipse.org/egit/updates/,name:EGit Update Site)
+ removeRepository(type:1,location:http${#58}//download.eclipse.org/egit/updates/,name:EGit Update Site);\
+ removeProgramArg(programArg:--launcher.XXMaxPermSize,programArgValue:512m);\
+ removeJvmArg(jvmArg:-Xmx2048m);
 
 # Not strictly necessary for the above to work but shows what happens under the covers
 # instructions.install.import=\
@@ -18,4 +23,3 @@ instructions.uninstall=\
 #  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(...);
 # instructions.install=\
 #  org.eclipse.equinox.p2.touchpoint.eclipse.removeRepository(...);
- 
