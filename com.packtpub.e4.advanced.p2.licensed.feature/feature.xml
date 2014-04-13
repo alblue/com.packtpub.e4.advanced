@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.packtpub.e4.advanced.p2.licensed.feature"
+      label="Licensed Feature"
+      version="1.0.0.qualifier"
+      provider-name="PACKTPUB">
+
+   <description url="http://github.com/alblue/com.packtpub.e4.advanced/">
+Provides a feature to demonstrate the p2 licensed bundle
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+Copyright (c) 2014, Alex Blewitt, Bandlem Ltd
+Copyright (c) 2014, Packt Publishing Ltd
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License
+v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="http://www.eclipse.org/legal/epl-v10.html">
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License
+v1.0      
+   </license>
+
+   <plugin
+         id="com.packtpub.e4.advanced.p2.licensed"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

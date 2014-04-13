@@ -1,0 +1,15 @@
+# Check that the license file is available before allowing installation
+
+instructions.install=\
+ licenseCheck(licenseFile:/tmp/license);
+
+# Import the licenseCheck via its action id (in plugin.xml)
+instructions.install.import=com.packtpub.e4.advanced.p2.touchpoints.licenseCheck
+
+# declare that we need to depend on the licenseCheck being available
+# we need the com.packtpub.e4.advanced.p2.touchpoints bundle
+metaRequirements.0.name=com.packtpub.e4.advanced.p2.touchpoints
+# as a P2 installable unit
+metaRequirements.0.namespace=org.eclipse.equinox.p2.iu
+# with a version range between 1.0.0 and 2.0.0
+metaRequirements.0.range=[1,2)
