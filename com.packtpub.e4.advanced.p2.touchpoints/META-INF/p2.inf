@@ -6,3 +6,16 @@ instructions.install=\
 instructions.uninstall=\
  removeRepository(type:0,location:http${#58}//download.eclipse.org/egit/updates/,name:EGit Update Site);\
  removeRepository(type:1,location:http${#58}//download.eclipse.org/egit/updates/,name:EGit Update Site)
+
+# Not strictly necessary for the above to work but shows what happens under the covers
+# instructions.install.import=\
+#  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository
+# instructions.uninstall.import=\
+#  org.eclipse.equinox.p2.touchpoint.eclipse.removeRepository
+
+# Alternatively the fully qualified name can be used
+# instructions.install=\
+#  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(...);
+# instructions.install=\
+#  org.eclipse.equinox.p2.touchpoint.eclipse.removeRepository(...);
+ 
