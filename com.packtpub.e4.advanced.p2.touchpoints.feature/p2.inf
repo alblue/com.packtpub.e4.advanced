@@ -1,0 +1,24 @@
+# The ID of the category, often named for the feature
+units.1.id=com.packtpub.e4.advanced.p2.touchpoints.category
+
+# The version number; the $qualifier$ will be replaced with the qualifier version of the feature
+units.1.version=$version$
+
+# Provide a name in the installable unit namespace
+units.1.provides.1.namespace=org.eclipse.equinox.p2.iu
+units.1.provides.1.name=com.packtpub.e4.advanced.p2.touchpoints.category
+units.1.provides.1.version=$version$
+
+# and ensure that it's known as a category (unit one, first property)
+units.1.properties.1.name=org.eclipse.equinox.p2.type.category
+units.1.properties.1.value=true
+
+# with a specific textual name (unit one, second property)
+units.1.properties.2.name=org.eclipse.equinox.p2.name
+units.1.properties.2.value=Touchpoints Examples
+
+# and include the following feature
+units.1.requires.1.namespace=org.eclipse.equinox.p2.iu
+units.1.requires.1.name=com.packtpub.e4.advanced.p2.touchpoints.feature.feature.group
+units.1.requires.1.range=[$version$,$version$]
+units.1.requires.1.greedy=true
