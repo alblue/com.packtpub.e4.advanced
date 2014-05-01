@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <toc label="Book">
    <topic href="html/index.html" label="Topic"/>
+   <anchor id="contributions"/>
 </toc>

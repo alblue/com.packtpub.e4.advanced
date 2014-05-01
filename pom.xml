@@ -21,6 +21,7 @@
     <module>com.packtpub.e4.advanced.baseline</module>
     <module>com.packtpub.e4.advanced.c</module>
     <module>com.packtpub.e4.advanced.console</module>
+    <module>com.packtpub.e4.advanced.doc</module>
     <module>com.packtpub.e4.advanced.event</module>
     <module>com.packtpub.e4.advanced.event.e4</module>
     <module>com.packtpub.e4.advanced.event.mailman</module>
