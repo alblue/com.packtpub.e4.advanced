@@ -5,5 +5,7 @@
       <toc file="toc.xml" primary="true"/>
       <toc file="contribution1.xml"/>
       <toc file="contribution2.xml"/>
+      <toc file="example1.xml"/>
+      <toc file="example2.xml"/>
    </extension>
 </plugin>
