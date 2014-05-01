@@ -2,4 +2,7 @@
 <toc label="Book">
    <topic href="html/index.html" label="Topic"/>
    <anchor id="contributions"/>
+   <topic label="Examples">
+      <anchor id="examples"/>
+   </topic>
 </toc>
