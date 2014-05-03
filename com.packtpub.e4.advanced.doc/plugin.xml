@@ -7,5 +7,6 @@
       <toc file="contribution2.xml"/>
       <toc file="example1.xml"/>
       <toc file="example2.xml"/>
+      <toc file="jdt.xml"/>
    </extension>
 </plugin>
