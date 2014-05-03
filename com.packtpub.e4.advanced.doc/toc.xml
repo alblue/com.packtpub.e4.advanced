@@ -4,5 +4,25 @@
    <anchor id="contributions"/>
    <topic label="Examples">
       <anchor id="examples"/>
+      <enablement>
+        <with variable="platform">
+          <test property="org.eclipse.core.runtime.isBundleInstalled" args="org.eclipse.jdt.ui"/>
+        </with>
+      </enablement>
+   </topic>
+   <topic label="OSX specific help" href="html/osx.html">
+     <enablement>
+        <systemTest property="osgi.os" value="macosx"/>
+     </enablement>
+   </topic>
+   <topic label="Linux specific help" href="html/linux.html">
+     <enablement>
+        <systemTest property="osgi.os" value="linux"/>
+     </enablement>
+   </topic>
+   <topic label="Windows specific help" href="html/win.html">
+     <enablement>
+        <systemTest property="osgi.os" value="win32"/>
+     </enablement>
    </topic>
 </toc>
