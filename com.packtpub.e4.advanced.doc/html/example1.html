@@ -1,9 +1,37 @@
-<!DOCTYPE html>
-<html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>Example 1</title>
 </head>
 <body>
 	<h1>Example 1</h1>
+	<p>To run the program, execute:</p>
+	<p>
+		<code>c:\&gt;java -cp lib\a.jar;lib\b.jar example</code>
+		<enablement> <systemTest property="osgi.os" value="win32" />
+		</enablement>
+	</p>
+	<p>
+		<code>$ java -cp lib/a.jar:lib/b.jar example</code>
+		<enablement> <not> <systemTest property="osgi.os"
+			value="win32" /> </not> </enablement>
+	</p>
+	<p>
+		To copy the information, press
+		<span>Command
+			<enablement>
+				<systemTest property="osgi.os" value="macosx" />
+			</enablement>
+		</span>
+		<span>Control
+			<enablement>
+				<not>
+					<systemTest property="osgi.os" value="macosx" />
+				</not>
+			</enablement>
+		</span>
+		 + C
+	</p>
 </body>
 </html>
