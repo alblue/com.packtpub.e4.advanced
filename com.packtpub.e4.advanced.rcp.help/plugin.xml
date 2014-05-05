@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            name="com.packtpub.e4.advanced.rcp.help"
+            application="org.eclipse.e4.ui.workbench.swt.E4Application">
+         <property
+               name="applicationCSS"
+               value="platform:/plugin/com.packtpub.e4.advanced.rcp.help/css/default.css2">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

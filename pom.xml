@@ -28,6 +28,7 @@
     <module>com.packtpub.e4.advanced.feeds</module>
     <module>com.packtpub.e4.advanced.feeds.nonosgi</module>
     <module>com.packtpub.e4.advanced.feeds.ui</module>
+    <module>com.packtpub.e4.advanced.help.rcp3</module>
 <!-- The Luna bundles do not support Require-Capability at this time
     <module>com.packtpub.e4.advanced.loader.consumer</module>
     <module>com.packtpub.e4.advanced.loader.producer</module>
@@ -40,6 +41,7 @@
     <module>com.packtpub.e4.advanced.p2.licensed.feature</module>
     <module>com.packtpub.e4.advanced.p2.touchpoints</module>
     <module>com.packtpub.e4.advanced.p2.touchpoints.feature</module>
+    <module>com.packtpub.e4.advanced.rcp.help</module>
   </modules>
   <build>
     <plugins>
