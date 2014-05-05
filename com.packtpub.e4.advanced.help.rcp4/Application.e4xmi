@@ -2,13 +2,16 @@
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_xMTgkNQ8EeOW8uEI51grXg" elementId="org.eclipse.e4.ide.application">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_xMTgkdQ8EeOW8uEI51grXg" label="com.packtpub.e4.advanced.help.rcp4" width="500" height="400">
     <handlers xmi:id="_mZN20NRPEeOW8uEI51grXg" elementId="com.packtpub.e4.advanced.help.rcp4.handler.help" contributionURI="bundleclass://com.packtpub.e4.advanced.help.rcp4/com.packtpub.e4.advanced.help.rcp4.HelpCommand" command="_-cg88NQ9EeOW8uEI51grXg"/>
+    <handlers xmi:id="_DGADANReEeOW8uEI51grXg" elementId="com.packtpub.e4.advanced.help.rcp4.handler.search" contributionURI="bundleclass://com.packtpub.e4.advanced.help.rcp4/com.packtpub.e4.advanced.help.rcp4.SearchCommand" command="_E72KUNReEeOW8uEI51grXg"/>
     <mainMenu xmi:id="_S5YpwNQ-EeOW8uEI51grXg" elementId="com.packtpub.e4.advanced.help.rcp4.menu.0">
       <children xsi:type="menu:Menu" xmi:id="_lwNgoNRQEeOW8uEI51grXg" elementId="com.packtpub.e4.advanced.help.rcp4.menu.1" label="Help">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_Wi_NsNQ-EeOW8uEI51grXg" elementId="com.packtpub.e4.advanced.help.rcp4.handledmenuitem.0" label="Help Contents" command="_-cg88NQ9EeOW8uEI51grXg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Wi_NsNQ-EeOW8uEI51grXg" elementId="com.packtpub.e4.advanced.help.rcp4.handledmenuitem.help" label="Help Contents" command="_-cg88NQ9EeOW8uEI51grXg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="__eOEANRdEeOW8uEI51grXg" elementId="com.packtpub.e4.advanced.help.rcp4.handledmenuitem.search" label="Search..." command="_E72KUNReEeOW8uEI51grXg"/>
       </children>
     </mainMenu>
   </children>
   <commands xmi:id="_-cg88NQ9EeOW8uEI51grXg" elementId="com.packtpub.e4.advanced.help.rcp4.command.help" commandName="com.packtpub.e4.advanced.help.rcp4.command.help" description="com.packtpub.e4.advanced.help.rcp4.command.help"/>
+  <commands xmi:id="_E72KUNReEeOW8uEI51grXg" elementId="com.packtpub.e4.advanced.help.rcp4.command.search" commandName="com.packtpub.e4.advanced.help.rcp4.command.search" description="com.packtpub.e4.advanced.help.rcp4.command.search"/>
   <addons xmi:id="_xMTgktQ8EeOW8uEI51grXg" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_xMTgk9Q8EeOW8uEI51grXg" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_xMTglNQ8EeOW8uEI51grXg" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
