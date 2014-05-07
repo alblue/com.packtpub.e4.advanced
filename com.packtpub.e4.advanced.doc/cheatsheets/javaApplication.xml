@@ -7,4 +7,8 @@
     <description>Firstly, create a new Java project called &#x201C;<b>HelloWorld</b>&#x201D;, followed by pressing <b>Finish</b></description>
     <command serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.jdt.ui.wizards.JavaProjectWizard)"/>
   </item>
+  <item title="Switch to the Java Browsing perspective">
+    <description>The Java Browsing perspective can be more efficient for navigating large projects, as it presents a logical view rather than a file-oriented view of the contents</description>
+    <command serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.jdt.ui.JavaBrowsingPerspective)"/>
+  </item>
 </cheatsheet>
