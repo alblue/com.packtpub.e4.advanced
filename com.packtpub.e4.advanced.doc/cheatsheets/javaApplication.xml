@@ -4,6 +4,7 @@
     <description>This cheatsheet shows how to create and run a simple Java application</description>
   </intro>
   <item title="Creating a new Java project">
-    <description>Firstly, create a new Java project called &#x201C;HelloWorld&#x201D;</description>
+    <description>Firstly, create a new Java project called &#x201C;<b>HelloWorld</b>&#x201D;, followed by pressing <b>Finish</b></description>
+    <command serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.jdt.ui.wizards.JavaProjectWizard)"/>
   </item>
 </cheatsheet>
