@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<cheatsheet title="Creating a Java application">
+  <intro>
+    <description>This cheatsheet shows how to create and run a simple Java application</description>
+  </intro>
+  <item title="Creating a new Java project">
+    <description>Firstly, create a new Java project called &#x201C;HelloWorld&#x201D;</description>
+  </item>
+</cheatsheet>

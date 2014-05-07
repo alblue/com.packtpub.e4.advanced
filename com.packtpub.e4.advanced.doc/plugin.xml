@@ -9,4 +9,13 @@
       <toc file="example2.xml"/>
       <toc file="jdt.xml"/>
    </extension>
+   <extension
+         point="org.eclipse.ui.cheatsheets.cheatSheetContent">
+      <cheatsheet
+            composite="false"
+            contentFile="cheatsheets/javaApplication.xml"
+            id="com.packtpub.e4.advanced.doc.cheatsheet.javaApplication"
+            name="Creating a Java application">
+      </cheatsheet>
+   </extension>
 </plugin>
