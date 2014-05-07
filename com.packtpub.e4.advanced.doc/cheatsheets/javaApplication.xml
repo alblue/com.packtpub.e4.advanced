@@ -7,8 +7,17 @@
     <description>Firstly, create a new Java project called &#x201C;<b>HelloWorld</b>&#x201D;, followed by pressing <b>Finish</b></description>
     <command serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.jdt.ui.wizards.JavaProjectWizard)"/>
   </item>
-  <item title="Switch to the Java Browsing perspective">
-    <description>The Java Browsing perspective can be more efficient for navigating large projects, as it presents a logical view rather than a file-oriented view of the contents</description>
-    <command serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.jdt.ui.JavaBrowsingPerspective)"/>
+  <item title="Choose a perspective">
+    <description>Choose your favourite Java perspective</description>
+         <command returns="perspective"
+      serialization="org.eclipse.ui.dialogs.openMessageDialog(title=Choose Perspective,message=Choose your favourite Perspective,buttonLabel0=Java Perspective,buttonLabel1=Java Browsing Perspective)"/>  
+      <onCompletion>Your favourite perspective is the ${perspective}.</onCompletion>
+  </item>
+  <item title="Switch to the perspective" skip="true">
+    <description>Switching to the appropriate perspective will facilitate working with Java projects.</description>
+    <perform-when condition="${perspective}">
+      <command when="Java Browsing Perspective" serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.jdt.ui.JavaBrowsingPerspective)"/>
+      <command when="Java Perspective"          serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.jdt.ui.JavaPerspective)"/>
+    </perform-when>
   </item>
 </cheatsheet>
