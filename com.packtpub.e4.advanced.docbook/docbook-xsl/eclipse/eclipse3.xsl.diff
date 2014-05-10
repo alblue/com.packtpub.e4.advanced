@@ -1,0 +1,17 @@
+--- eclipse3.xsl	2014-05-10 17:01:32.000000000 +0100
++++ eclipse3.xsl	2014-05-10 16:58:59.000000000 +0100
+@@ -99,11 +99,13 @@
+     <xsl:text>&#xA;</xsl:text>
+     <xsl:text>Bundle-Version: 1.0</xsl:text>
+     <xsl:text>&#xA;</xsl:text>
+     <xsl:text>Bundle-Name: </xsl:text><xsl:value-of select="$eclipse.plugin.name"/>
+     <xsl:text>&#xA;</xsl:text>
+-    <xsl:text>Bundle-SymbolicName: </xsl:text><xsl:value-of select="$eclipse.plugin.id"/>
++    <xsl:text>Bundle-SymbolicName: </xsl:text><xsl:value-of select="$eclipse.plugin.id"/><xsl:text>;singleton:=true</xsl:text>
++    <xsl:text>&#xA;</xsl:text>
++    <xsl:text>Bundle-ManifestVersion: 2</xsl:text>
+     <xsl:text>&#xA;</xsl:text>
+     <xsl:text>Bundle-Vendor: </xsl:text><xsl:value-of select="$eclipse.plugin.provider"/>
+     <xsl:text>&#xA;</xsl:text>
+   </xsl:template>
+ 
