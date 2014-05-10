@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contexts>
+   <context id="project_explorer_context" title="Project Explorer Additional">
+      <description>The project explorer allows projects to be explored.</description>
+   </context>
+</contexts>

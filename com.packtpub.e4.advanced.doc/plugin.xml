@@ -18,4 +18,11 @@
             name="Creating a Java application">
       </cheatsheet>
    </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts_Platform.xml"
+            plugin="org.eclipse.ui">
+      </contexts>
+   </extension>
 </plugin>
