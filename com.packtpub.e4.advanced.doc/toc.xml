@@ -10,6 +10,7 @@
         </with>
       </enablement>
    </topic>
+   <topic label="Active help" href="html/activeHelp.html"/>
    <topic label="OSX specific help" href="html/osx.html">
      <enablement>
         <systemTest property="osgi.os" value="macosx"/>
