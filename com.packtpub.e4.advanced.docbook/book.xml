@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook-xml-4/docbookx.dtd">
+<book>
+	<title>Sample DocBook</title>
+	<bookinfo>
+		<title>DocBook Intro</title>
+	</bookinfo>
+	<chapter>
+		<title>Generating Help plug-ins</title>
+		<section>
+			<title>Generating Eclipse Help from DocBook</title>
+			<para>
+				The first step in generating Eclipse Help is to download
+				DocBook templates from http://docbook.org, and styles from
+				http://sourceforge.net/projects/docbook/files/docbook-xsl/
+			</para>
+		</section>
+		<section>
+			<title>Building Help from DocBook</title>
+			<para>
+				Use the ant build file as a template to build the plug-in.
+				You may wish to disable/customise the manifest and plugin.xml
+				generation files.
+			</para>
+		</section>
+	</chapter>
+	<chapter>
+		<title>Testing Help plug-ins</title>
+		<section>
+			<title>Testing the help plug-in</title>
+			<para>
+				Since the help is stored in a plug-in is can be run
+				as an Eclipse application and viewed via the Help page. 
+			</para>
+		</section>
+	</chapter>
+</book>	

@@ -1,0 +1,60 @@
+<!--
+Copyright (c) 2014, Alex Blewitt, Bandlem Ltd
+Copyright (c) 2014, Packt Publishing Ltd
+ 
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+-->
+
+<!--
+Note: If when running this from the command line you get a
+NullPointerException in referenceToNodeSet, this is a known
+issue with the bundled version of Xalan that comes with Java.
+
+To fix this, add the org.apache.x* plugins to the Ant classpath:
+
+ls eclipse-4.3/plugins/org.apache.x*
+org.apache.xalan_2.7.1.v201005080400.jar
+org.apache.xerces_2.9.0.v201101211617.jar
+org.apache.xml.resolver_1.2.0.v201005080400.jar
+org.apache.xml.serializer_2.7.1.v201005080400.jar
+org.apache.xmlrpc_3.0.0.v20100427-1100.jar
+-->
+<project name="DocBook to Eclipse Help" default="docbook-help">
+	<target name="clean">
+		<delete>
+			<fileset dir=".">
+				<include name="*.html"/>
+				<include name="META-INF/MANIFEST.MF"/>
+				<include name="plugin.xml"/>
+				<include name="toc.xml"/>
+				<include name="index.xml"/>
+			</fileset>
+		</delete>
+	</target>
+	<target name="docbook-help" depends="clean">
+		<echo message="Making Eclipse help" />
+		<xslt style="docbook-xsl/eclipse/eclipse3.xsl" destdir=".">
+			<include name="book.xml" />
+			<param name="eclipse.plugin.provider" expression="Packt Publishing"/>
+			<param name="eclipse.plugin.id" expression="com.packtpub.e4.advanced.docbook"/>
+			<param name="eclipse.plugin.name" expression="DocBook sample help plug-in"/>
+
+			<!-- Refer to the product's book.css to fit in with help style -->
+			<param name="html.stylesheet" expression="../PRODUCT_PLUGIN/book.css"/>						
+			<!-- Disable header and footer navigation -->
+			<param name="suppress.navigation" expression="1"/>
+			
+			<!-- uncomment to disable plugin.xml generation -->
+			<!--param name="create.plugin.xml" expression="0" /--> 
+
+			<!-- uncomment to disable MANIFEST.MF generation -->
+			<!--param name="eclipse.manifest" expression="0" /-->
+
+			<!-- uncomment to disable index.html generation -->
+			<!--param name="generate.index" expression="0" /-->
+		</xslt>
+	</target>
+</project>
