@@ -2,5 +2,7 @@
 <contexts>
    <context id="project_explorer_context" title="Project Explorer Additional">
       <description>The project explorer allows projects to be explored.</description>
+      <topic href="html/contribution1.html" label="Contribution 1"/>
+      <topic href="html/contribution2.html" label="Contribution 2"/>
    </context>
 </contexts>
