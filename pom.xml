@@ -44,6 +44,7 @@
     <module>com.packtpub.e4.advanced.p2.touchpoints</module>
     <module>com.packtpub.e4.advanced.p2.touchpoints.feature</module>
     <module>com.packtpub.e4.advanced.rcp.help</module>
+    <module>com.packtpub.e4.advanced.wikihelp</module>
   </modules>
   <build>
     <plugins>

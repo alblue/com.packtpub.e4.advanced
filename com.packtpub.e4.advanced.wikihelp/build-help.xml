@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.eclipse.egit.doc" basedir="." default="all">
+<!--
+    Copyright (c) 2010 Chris Aniszczyk and others.
+    Copyright (c) 2010,2013 Matthias Sohn <matthias.sohn@sap.com>
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+
+    Contributors:
+         Chris Aniszczyk - initial API and implementation
+         Matthias Sohn - maven integration, update to wikitext 1.3, adding additional wikis
+-->
+	<description>
+		Generate Eclipse help content for the EGit user guide
+	</description>
+
+	<path id="wikitext.tasks.classpath">
+		<pathelement path="${compile_classpath}"/>
+	</path>
+        <echo message="compile classpath: ${compile_classpath}"/>
+	<taskdef classpathref="wikitext.tasks.classpath" resource="org/eclipse/mylyn/internal/wikitext/mediawiki/core/tasks/tasks.properties"/>
+	<taskdef classpathref="wikitext.tasks.classpath" resource="org/eclipse/mylyn/wikitext/core/util/anttask/tasks.properties"/>
+
+	<property name="egit.help.doc.url.base" value="http://wiki.eclipse.org" />
+
+	<target name="all" description="Generate Eclipse help content for the EGit documentation">
+		<sequential>
+			<delete failonerror="false">
+				<fileset dir="${basedir}/help/images" />
+			</delete>
+
+			<mediawiki-to-eclipse-help wikiBaseUrl="${egit.help.doc.url.base}"
+				validate="true" failonvalidationerror="true" prependImagePrefix="images"
+				formatoutput="true" defaultAbsoluteLinkTarget="egit_external" dest="${basedir}/help"
+				navigationimages="true" title="EGit Documentation" helpPrefix="help"
+				generateUnifiedToc="true">
+				<path name="EGit/User_Guide" title="EGit User Guide" />
+				<path name="JGit/User_Guide" title="JGit User Guide" />
+				<path name="EGit/New_and_Noteworthy/3.2" title="EGit 3.2 New and Noteworthy" />
+				<path name="JGit/New_and_Noteworthy/3.2" title="JGit 3.2 New and Noteworthy" />
+				<path name="EGit/Git_For_Eclipse_Users" title="Git for Eclipse Users" />
+				<stylesheet url="book.css" />
+				<pageAppendum>
+
+					= Updating This Document =
+
+					This document is maintained in a collaborative wiki. If you wish to
+					update or modify this document please visit
+					{url}</pageAppendum>
+			</mediawiki-to-eclipse-help>
+			<mkdir dir="help/images" />
+			<copy todir="${basedir}/help/images" overwrite="true">
+				<fileset dir="images" />
+			</copy>
+		</sequential>
+	</target>
+</project>
