@@ -18,5 +18,34 @@
 			<param name="path" value="javaApplication.xml">
 			</param>
 		</task>
+		<taskGroup kind="choice" name="JDT Cheat Sheets" skip="false">
+			<intro>
+				<b>Introduction</b>
+				These are the cheat sheets provided by the JDT
+			</intro>
+			<onCompletion>
+				Congratulations, you have completed the tasks
+			</onCompletion>
+			<task kind="cheatsheet" name="JDT Hello World" skip="false">
+				<intro>
+					Provides a simple Hello World project
+				</intro>
+				<onCompletion>
+					Congratulations, you have completed the task
+				</onCompletion>
+				<param name="id" value="org.eclipse.jdt.helloworld">
+				</param>
+			</task>
+			<task kind="cheatsheet" name="SWT Hello World" skip="false">
+				<intro>
+					Provides a SWT hello world project
+				</intro>
+				<onCompletion>
+					Congratulations, you have completed the task
+				</onCompletion>
+				<param name="id" value="org.eclipse.jdt.helloworld.swt">
+				</param>
+			</task>
+		</taskGroup>
 	</taskGroup>
 </compositeCheatsheet>

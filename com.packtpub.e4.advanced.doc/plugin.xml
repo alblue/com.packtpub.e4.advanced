@@ -11,6 +11,7 @@
    </extension>
    <extension
          point="org.eclipse.ui.cheatsheets.cheatSheetContent">
+      <category name="Example cheat sheets" id="com.packtpub.e4.advanced.doc.category"/>
       <cheatsheet
             composite="false"
             contentFile="cheatsheets/javaApplication.xml"
