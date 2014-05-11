@@ -17,6 +17,12 @@
             id="com.packtpub.e4.advanced.doc.cheatsheet.javaApplication"
             name="Creating a Java application">
       </cheatsheet>
+      <cheatsheet
+            composite="true"
+            contentFile="cheatsheets/composite.xml"
+            id="com.packtpub.e4.advanced.doc.cheatsheet.composite"
+            name="Composite cheatsheets">
+      </cheatsheet>
    </extension>
    <extension
          point="org.eclipse.help.contexts">

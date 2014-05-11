@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compositeCheatsheet name="A collection set of cheat sheets">
+	<taskGroup kind="choice" name="Example Cheat Sheets Collection"
+		skip="false">
+		<intro>
+			<b>Overview of cheat sheets</b>
+		</intro>
+		<onCompletion>
+			<b>Congratulations of completing the cheat sheets</b>
+		</onCompletion>
+		<task kind="cheatsheet" name="Example Cheat Sheet" skip="false">
+			<intro>
+				The cheat sheet provided in this plug-in
+			</intro>
+			<onCompletion>
+				Congratulations, you have completed the tasks
+			</onCompletion>
+			<param name="path" value="javaApplication.xml">
+			</param>
+		</task>
+	</taskGroup>
+</compositeCheatsheet>
