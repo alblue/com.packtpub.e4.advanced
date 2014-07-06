@@ -18,6 +18,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
   <modules>
+    <module>com.packtpub.e4.advanced.baseline</module>
     <module>com.packtpub.e4.advanced.c</module>
     <module>com.packtpub.e4.advanced.console</module>
     <module>com.packtpub.e4.advanced.feeds</module>
