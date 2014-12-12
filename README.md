@@ -32,8 +32,8 @@ at that particular time.
 
 These can be checked out by using the EGit repository view, and right-clicking
 and choosing 'Switch to' and 'Other' will allow the tags to be selected.
-Alternatively using 'git checkout chapter1' from the command line followed
-by 'git clean -fxd' will give you the state of the repository at the end
+Alternatively using `git checkout chapter1` from the command line followed
+by `git clean -fxd` will give you the state of the repository at the end
 of each chapter.
 
 https://github.com/alblue/com.packtpub.e4.advanced/tags/
